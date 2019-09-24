@@ -1,0 +1,43 @@
+package com.company;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayDeque<Integer> numbers = new ArrayDeque<>();
+        String[] input = scanner.nextLine().split(" ");
+        for (int i = 0; i < input.length-1; i++) {
+            if (Character.isDigit(input[i].charAt(0))) {
+                numbers.push(Integer.parseInt(input[i]));
+            } else if (input[i].equals("+")) {
+                int result = sumMethod(numbers, input, i);
+                numbers.push(result);
+                i++;
+            } else if (input[i].equals("-")) {
+int result = sumMethod(numbers,input,i);
+                numbers.push(result);
+                i++;
+            }
+        }
+        System.out.println(numbers.peek());
+    }
+
+    private static Integer  sumMethod(ArrayDeque<Integer> numbers, String[] input, int i) {
+        int result;
+            int firstNumber = numbers.pop();
+        String sight = input[i];
+        int lastNumber = Integer.parseInt(input[i+1]);
+
+
+        if(input[i].equals("+")){
+            result=firstNumber+lastNumber;
+    }else{
+            result =firstNumber-lastNumber;
+        }
+        return result;
+
+}
+
+}

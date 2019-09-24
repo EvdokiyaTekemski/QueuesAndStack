@@ -1,0 +1,28 @@
+package com.company;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class browserHistory {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayDeque<String> history = new ArrayDeque<>();
+        String input = "";
+
+        while (!"Home".equals(input=scanner.nextLine())){
+
+            if(input.equals("back")){
+                if(history.size()>=2){
+                    history.poll();
+                    System.out.println(history.peek());
+                }else {
+                    System.out.println("no previous URLs");
+                }
+            }else {
+                history.push(input);
+                System.out.println(history.peek());
+            }
+        }
+
+    }
+}

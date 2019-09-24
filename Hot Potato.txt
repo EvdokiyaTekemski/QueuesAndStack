@@ -1,0 +1,26 @@
+package com.company;
+
+import java.util.ArrayDeque;
+import java.util.Scanner;
+
+public class HotPotato {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayDeque<String> hotPotato= new ArrayDeque<>();
+        String [] input = scanner.nextLine().split(" ");
+        int number = Integer.parseInt(scanner.nextLine());
+ArrayDeque<String>removeWo = new ArrayDeque<>();
+        for (String pushQueue:input
+             ) {
+            hotPotato.offer(pushQueue);
+        }
+        while (hotPotato.size()!=1){
+            for (int i = 0; i <number-1 ; i++) {
+                hotPotato.offer(hotPotato.poll());
+
+                }
+            System.out.println("Removed " + hotPotato.poll());
+            }
+        System.out.println("Last is " + hotPotato.poll());
+            }
+        }
